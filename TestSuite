@@ -1,0 +1,47 @@
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestSuite 
+{
+	private ATM bs;
+	private Bank b;
+	@Before
+	public void setup()
+	{
+		b = new Bank();
+		bs = new ATM(b);
+	}
+	@Test
+	public void testA()
+	{
+		bs.enter("1234");
+		assertTrue(bs.validate("6789").equals("Successfully validated Account/Pin"));
+		bs.withdraw(20);
+		assertTrue(bs.exit().equals("AN: 1234\nPIN: 6789\nWD: 20\nDP: \nBAL: 60"));
+	}
+	@Test
+	public void testB()
+	{
+		setup();
+		bs.enter("1234");
+		assertTrue(bs.validate("6789").equals("Successfully validated Account/Pin"));
+		bs.withdraw(80);
+		assertTrue(bs.exit().equals("AN: 1234\nPIN: 4321\nWD: 80\nDP: \nBAL: 0"));
+	}
+	public void testC()
+	{
+		bs.enter("6789");
+		assertFalse(bs.validate("6666").equals("Invalid Account/Pin combination"));
+	}
+	public void testD()
+	{
+		setup();
+		bs.enter("6789");
+		assertTrue(bs.validate("4321").equals("Successfully validated Account/Pin"));
+		bs.deposit(20);
+		assertTrue(bs.exit().equals("AN: 6789\nPIN: 4321\nWD: \nDP: 20\nBAL: 40"));
+	}
+}
