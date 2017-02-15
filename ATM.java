@@ -1,5 +1,3 @@
-package lab3;
-
 public class ATM {
 	private Bank _bank;
 	private String _pendingAccount, _activeAccount, _receipt;
@@ -7,7 +5,7 @@ public class ATM {
 	public ATM(Bank b){_bank=b;}
 	
 	public void enter(String account){
-		_receipt = null;
+		_receipt = "Transaction canceled.;
 		_pendingAccount = account;
 	}
 	
