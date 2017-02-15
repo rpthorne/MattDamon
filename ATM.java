@@ -1,3 +1,5 @@
+package lab3;
+
 public class ATM {
 	private Bank _bank;
 	private String _pendingAccount, _activeAccount, _receipt;
@@ -9,13 +11,14 @@ public class ATM {
 		_pendingAccount = account;
 	}
 	
-	public void validate(String pin){
+	public String validate(String pin){
 		if (_pendingAccount == null)
 			System.out.println("Pin entered without inserting card.");
 		else if (!_bank.validate(_pendingAccount,pin))
-			System.out.println("Invalid account/pin.");
-		else
+			return "Invalid Account/Pin combination";
+		else{
 			_activeAccount = _pendingAccount;
+			return "Successfully validated Account/Pin";}
 	}
 	
 	public void withdraw(double amount){
