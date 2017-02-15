@@ -1,0 +1,19 @@
+ATM
+enter(int accountNum) -> validate(pin) (-> Bank.validate(account,pin))
+boolean withdraw(double)
+boolean deposit(double)
+exit() -> (removes card) -> printReceipt()
+
+BANK
+Account active
+
+Bank() -create map of account numbers to objects
+validate(alabccount, pin)
+String withdraw(double)
+String deposit(double)
+
+ACCOUNT
+account(number, pin, balance)
+boolean validate(pin) 
+boolean withdraw(double)
+void deposit(double)
