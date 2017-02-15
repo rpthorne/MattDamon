@@ -17,3 +17,15 @@ account(number, pin, balance)
 boolean validate(pin) 
 boolean withdraw(double)
 void deposit(double)
+
+
+
+
+
+
+Receipt:
+“AN: 1234\n
+PIN: 4321\n
+WD: 20\n
+DP: 60\n
+BAL: 5432”
